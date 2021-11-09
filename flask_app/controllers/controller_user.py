@@ -20,9 +20,17 @@ def register():
     print(pw_hash)
 
     data = {
-        "username": request.form['username'],
+        "first_name" : request.form['first_name'],
+        "last_name" : request.form['last_name'],
+        "email": request.form['email'],
         "password" : pw_hash
     }
     user_id = User.create(data)
+    print(user_id)
     session['user_id'] = user_id
+    print(session['user_id'])
     return redirect('/dashboard')
+
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
