@@ -1,18 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css')}}">
 </head>
+
 <body>
-
-
-<h1>Hrllo</h1>
-
-<script src="/flask_app/static/js/script.js"></script>
+    <div class="container flex p-5">
+        <div>
+            <!-- Description -->
+            <form class="flex" action="" method="post">
+                <div class="m-5 p-5" >
+                    <h1>Add New Recipe</h1>
+                    <div class="mt-5 input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Name:</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default" name="first_name">
+                    </div>
+                    <div class=" my-4 mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Descriptions:</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <div class=" my-4 mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Instructions:</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <div class="mt-5">
+                        <button type="submit" class="btn btn-primary btn2">Create</button>
+                    </div>
+                </div>
+                <div style="width: 50px;"></div>
+                <div class="m-5 p-5">
+                    <!-- Date -->
+                    <div class="flex flex-end">
+                        <div></div>
+                        <a href="" class="mx-3">Dashboard</a>
+                        <a href="">Logout</a>
+                    </div>
+                    <div class="my-5">
+                        <label for="date" class="block">Date Made On:</label>
+                        <input type="date" name="date" id="">
+                    </div>
+                    <div>
+                        <h5>Under 30 minutes?</h5>
+                        <label for="">Yes</label>
+                        <input type="radio" name="yes" id="" value="Yes">
+                        <label for="">No</label>
+                        <input type="radio" name="no" id="" value="No">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script src="/flask_app/static/js/script.js"></script>
 </body>
+
 </html>

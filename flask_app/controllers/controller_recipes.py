@@ -9,4 +9,4 @@ bcrypt = Bcrypt(app)
 
 @app.route('/')
 def index():
-    return render_template('login.html')
+    return render_template('recipe_info.html')
