@@ -11,7 +11,7 @@ bcrypt = Bcrypt(app)
 
 
 
-class (User)/no():
+class Recipe:
     def __init__(self,data):
         self.id = data['id']
 
