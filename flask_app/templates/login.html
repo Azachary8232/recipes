@@ -15,33 +15,68 @@
     <div class="container flex m-5 p-5">
         <div class="m-5 p-5 bg-dark text-light">
             <!-- Register -->
-            <form action="" method="post">
+            <form action="/register" method="post">
                 <h1>Register</h1>
                 <div class="mt-5 input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">First Name:</span>
                     <input type="text" class="form-control" aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-default" name="first_name">
                 </div>
+                    {% with messages = get_flashed_messages(category_filter= 'first_name') %}    
+                        {% if messages %}                           
+                            {% for message in messages %}            
+                                <p>{{message}}</p>                 
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}    
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Last Name:</span>
+                    <span class="input-group-text" id="inputGroup-sizing-default">last Name:</span>
                     <input type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default" name="first_name">
+                        aria-describedby="inputGroup-sizing-default" name="last_name">
                 </div>
+                    {% with messages = get_flashed_messages(category_filter='last_name') %}    
+                        {% if messages %}                           
+                            {% for message in messages %}            
+                                <p>{{message}}</p>                 
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}    
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
                     <input type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default" name="first_name">
+                        aria-describedby="inputGroup-sizing-default" name="email">
                 </div>
+                    {% with messages = get_flashed_messages(category_filter= 'email') %}    
+                        {% if messages %}                           
+                            {% for message in messages %}            
+                                <p>{{message}}</p>                 
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
                     <input type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default" name="first_name">
+                        aria-describedby="inputGroup-sizing-default" name="password">
                 </div>
+                    {% with messages = get_flashed_messages(category_filter= 'password') %}    
+                        {% if messages %}                           
+                            {% for message in messages %}            
+                                <p>{{message}}</p>                 
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Confirm Password</span>
                     <input type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default" name="first_name">
+                        aria-describedby="inputGroup-sizing-default" name="confirm_password">
                 </div>
+                    {% with messages = get_flashed_messages(category_filter= 'confirm_password') %}    
+                        {% if messages %}                           
+                            {% for message in messages %}            
+                                <p>{{message}}</p>                 
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
                 <div class="mt-5">
                     <button type="submit" class="btn btn-primary btn2">Register</button>
                 </div>
