@@ -39,10 +39,10 @@ class Recipe:
             is_valid = False  
 
         # for ***Select/Options Input***
-        # if len(recipe['under_30Y']) < 2 and len(recipe['under_30Y']) < 2: 
-        #     flash("Time to make must be included.", category= "under_30")
-        #     is_valid = False  
-        #     return is_valid 
+        if len(recipe['under_30']) < 2: 
+            flash("Time to make must be included.", category= "under_30")
+            is_valid = False  
+            return is_valid 
 
 
 

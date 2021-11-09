@@ -78,16 +78,17 @@
                     <div>
                         <h5>Under 30 minutes?</h5>
                         <label for="">Yes</label>
-                        <input type="radio" name="under_30Y" id="" value="yes">
+                        <input type="radio" name="under_30" id="" value="yes">
                         <label for="">No</label>
-                        <input type="radio" name="under_30N" id="" value="no">
-                        <!-- {% with messages = get_flashed_messages(category_filter= 'under_30') %}    
+                        <input type="radio" name="under_30" id="" value="no">
+                        <input type="hidden" name="under_30" value="0">
+                        {% with messages = get_flashed_messages(category_filter= 'under_30') %}    
                             {% if messages %}                           
                                 {% for message in messages %}            
                                     <p>{{message}}</p>                 
                                 {% endfor %}
                             {% endif %}
-                        {% endwith %} -->
+                        {% endwith %}
                     </div>
                 </div>
             </form>
