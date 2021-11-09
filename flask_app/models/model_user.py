@@ -4,7 +4,6 @@ from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app import app
 from flask import flash 
 import re
-import re	# the regex module  <--- add to /model top
 from flask_bcrypt import Bcrypt        
 bcrypt = Bcrypt(app) 
 
@@ -23,6 +22,7 @@ class User:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
+#   Check Registration Input Correctness
     @staticmethod
     def validate_user(user):
         is_valid = True # we assume this is true
@@ -44,18 +44,30 @@ class User:
             is_valid = False  #-- use different if statement for all inputs
         return is_valid
 
+
+
     # ***CREATE***
 
+#   Creates User from Login/Regisrtation
     @classmethod
     def create(cls,data):
         query = "INSERT INTO users (first_name, last_name, email, password) VALUES (%(first_name)s, %(last_name)s, %(email)s, %(password)s);"
         user_id = connectToMySQL(model_db).query_db(query,data)
         return user_id
+        
 
 
 
 
     # ***Retreive***
+
+    @classmethod
+    def get_by_email(cls,data):
+        query = "SELECT * FROM users WHERE email = %(email)s;"
+        result = connectToMySQL(model_db).query_db(query,data)
+        if len(result) < 1:
+            return False
+        return cls(result[0])
 
 
 
