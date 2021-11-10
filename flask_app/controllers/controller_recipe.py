@@ -38,26 +38,36 @@ def recipe_info(id):
     return render_template('recipe_info.html', recipe = recipe, user = user)
 
     #  Page for User to edit Recipe
-@app.route('/edit')
-def edit_recipe():
+@app.route('/edit/<int:id>')
+def edit_recipe(id):
     if 'user_id' not in session:
         return redirect('/')
 
-    return render_template('edit_recipe.html')
+    data = {
+        'id' : id
+    }
 
+    recipe = Recipe.get_recipe(data)
+    print(recipe)
+    session['recipe_id'] = id   
+
+    return render_template('edit_recipe.html', recipe = recipe)
+
+
+
+#   Edit a recipe
 @app.route('/update', methods=['POST'])
 def update_recipe():
-    print(request.form)
+    recipe_id = session['recipe_id']
     if not Recipe.validate_recipe(request.form):
-        return redirect('/edit')
+        return redirect(f'/edit/{recipe_id}')
     print("!!!!!")
-    user_id = session['user_id']
     data = {
-        'user_id' : user_id,
+        'id' : recipe_id,
         'name' : request.form['name'],
         'description' : request.form['description'],
         'instruction' : request.form['instruction'],
-        'created_on' : request.form['created_at'],
+        'created_at' : request.form['created_at'],
         'under_30' : request.form['under_30'],
     }
 

@@ -18,7 +18,7 @@
                     <div class="mt-5 input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">Name:</span>
                         <input type="text" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default" name="name">
+                            aria-describedby="inputGroup-sizing-default" name="name" placeholder="{{recipe.name}}">
                     </div>
                     {% with messages = get_flashed_messages(category_filter= 'recipe_name') %}    
                         {% if messages %}                           
@@ -29,7 +29,7 @@
                     {% endwith %}
                     <div class=" my-4 mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Descriptions:</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="{{recipe.description}}" name="description"></textarea>
                     </div>
                     {% with messages = get_flashed_messages(category_filter= 'recipe_description') %}    
                         {% if messages %}                           
@@ -40,7 +40,7 @@
                     {% endwith %}
                     <div class=" my-4 mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Instructions:</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="instruction"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="{{recipe.instruction}}" name="instruction"></textarea>
                     </div>
                     {% with messages = get_flashed_messages(category_filter= 'recipe_instructione') %}    
                         {% if messages %}                           
@@ -63,7 +63,8 @@
                     </div>
                     <div class="my-5">
                         <label for="date" class="block">Date Made On:</label>
-                        <input type="date" name="created_at" id="">
+                        <input type="date" name="created_at" id="" placeholder="{{recipe.created_at}}">
+                        
                     </div>
                     {% with messages = get_flashed_messages(category_filter= 'recipe_date') %}    
                         {% if messages %}                           
