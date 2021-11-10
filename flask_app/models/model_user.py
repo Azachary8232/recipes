@@ -80,7 +80,7 @@ class User:
     def get_one(cls, data):
         query = 'SELECT * FROM users WHERE users.id = %(id)s;'
         result = connectToMySQL(model_db).query_db(query, data)
-        return result
+        return cls(result[0])
         
 
 

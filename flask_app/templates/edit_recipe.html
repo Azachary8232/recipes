@@ -18,15 +18,15 @@
                     <div class="mt-5 input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">Name:</span>
                         <input type="text" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default" name="first_name">
+                            aria-describedby="inputGroup-sizing-default" name="name">
                     </div>
                     <div class=" my-4 mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Descriptions:</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
                     </div>
                     <div class=" my-4 mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Instructions:</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="instruction"></textarea>
                     </div>
                     <div class="mt-5">
                         <button type="submit" class="btn btn-primary btn2">Update</button>
@@ -37,19 +37,20 @@
                     <!-- Date -->
                     <div class="flex flex-end">
                         <div></div>
-                        <a href="" class="mx-3">Dashboard</a>
-                        <a href="">Logout</a>
+                        <a href="/dashboard" class="mx-3">Dashboard</a>
+                        <a href="/logout">Logout</a>
                     </div>
                     <div class="my-5">
                         <label for="date" class="block">Date Made On:</label>
-                        <input type="date" name="date" id="">
+                        <input type="date" name="created_at" id="">
                     </div>
                     <div>
                         <h5>Under 30 minutes?</h5>
                         <label for="">Yes</label>
-                        <input type="radio" name="yes" id="" value="Yes">
+                        <input type="radio" name="under_30" id="" value="Yes">
                         <label for="">No</label>
-                        <input type="radio" name="no" id="" value="No">
+                        <input type="radio" name="under_30" id="" value="No">
+                        <input type="hidden" name="under_30" value="0">
                     </div>
                 </div>
             </form>

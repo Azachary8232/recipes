@@ -62,6 +62,7 @@ def dashboard():
     }
     print(session)
     person = User.get_one(data)
+    print(person)
     recipes = User.get_all_with_recipes()
     return render_template('dashboard.html', recipes = recipes, user = person)
 

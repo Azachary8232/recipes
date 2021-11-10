@@ -52,9 +52,20 @@ class Recipe:
 
 # Retreive
 
+    @classmethod
+    def get_recipe(cls,data):
+        query = 'SELECT * FROM recipes WHERE recipes.id = %(id)s;'
+        result = connectToMySQL(model_db).query_db(query, data)
+        return result
+
 
 # Update
 
+    @classmethod
+    def update(cls, data):
+        query = 'UPDATE recipes SET name = %(name)s, description = %(description)s, instruction = %(instruction)s, under_30 = %(under_30)s WHERE id = %(id)s';
+        connectToMySQL(model_db).query_db(query, data)
+        return print("Update Successful")
 
 
 # Delete
