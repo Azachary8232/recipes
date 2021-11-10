@@ -1,5 +1,6 @@
 from flask import render_template, redirect, request, session, flash
 from flask_app import app
+from flask_app.models.model_user import User
 from flask_app.models.model_recipe import Recipe
 
 
@@ -24,14 +25,18 @@ def create_recipe():
 #  Displays a Recipe's Info
 @app.route('/recipe_info/<int:id>')
 def recipe_info(id):
+    print("????")
     print(id)
     data = {
         'id' : id
     }
+    user = User.get_one(session['user_id'])
+    print("!!!!")
+    print(user)
 
     recipe = Recipe.get_recipe(data)
     print(recipe)
-    return render_template('recipe_info.html', recipe = recipe)
+    return render_template('recipe_info.html', recipe = recipe, user = user)
 
     #  Page for User to edit Recipe
 @app.route('/edit')

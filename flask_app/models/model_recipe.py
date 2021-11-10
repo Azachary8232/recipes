@@ -56,7 +56,7 @@ class Recipe:
     def get_recipe(cls,data):
         query = 'SELECT * FROM recipes WHERE recipes.id = %(id)s;'
         result = connectToMySQL(model_db).query_db(query, data)
-        return result
+        return cls(result[0])
 
 
 # Update
