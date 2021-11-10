@@ -6,8 +6,7 @@ from flask_app.models.model_recipe import Recipe
 #  Create Recipe in WorkBench and send to Recipe Info
 @app.route('/create_recipe', methods = ['POST'])
 def create_recipe():
-    print(request.form)
-    if not Recipe.vaildate_recipe(request.form):
+    if not Recipe.validate_recipe(request.form):
         return redirect('/new_recipe')
     user_id = session['user_id']
     data = {
@@ -16,14 +15,11 @@ def create_recipe():
         'description' : request.form['description'],
         'instruction' : request.form['instruction'],
         'created_on' : request.form['created_at'],
-        'under_30Y' : request.form['under_30Y'],
-        'under_30N' : request.form['under_30N'],
-
+        'under_30' : request.form['under_30'],
     }
 
-    recipe_id = Recipe.create(data)
-    print(recipe_id)
-    return redirect(f'/recipe_info/{recipe_id}')
+    Recipe.create(data)
+    return redirect('/dashboard')
 
 #  Displays a Recipe's Info
 @app.route('/recipe_info/<int:id>')

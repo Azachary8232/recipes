@@ -3,6 +3,7 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app import app
 from flask import flash 
+from flask_app.models.model_recipe import Recipe
 import re
 from flask_bcrypt import Bcrypt        
 bcrypt = Bcrypt(app) 
@@ -21,6 +22,8 @@ class User:
         self.password = data['password']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+
+        self.recipes = []
 
 #   Check Registration Input Correctness
     @staticmethod
@@ -57,8 +60,6 @@ class User:
         
 
 
-
-
     # ***Retreive***
 
     @classmethod
@@ -69,9 +70,18 @@ class User:
             return False
         return cls(result[0])
 
+    @classmethod
+    def get_all_with_recipes(cls):
+        query = 'SELECT * FROM users LEFT JOIN recipes ON users.id = recipes.user_id;'
+        result = connectToMySQL(model_db).query_db(query)
+        return result
 
-
-
+    @classmethod
+    def get_one(cls, data):
+        query = 'SELECT * FROM users WHERE users.id = %(id)s;'
+        result = connectToMySQL(model_db).query_db(query, data)
+        return result
+        
 
 
     # ***Update***

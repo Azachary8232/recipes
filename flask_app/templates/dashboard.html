@@ -14,7 +14,7 @@
         <!-- Navbar -->
         <div>
             <!-- Page Title -->
-            <h1>Welcome SAMPLE</h1>
+            <h1>Welcome {{user.first_name}} {{user.last_name}}</h1>
         </div>
         <div>
             <!-- Links -->
@@ -34,15 +34,19 @@
                 </tr>
             </thead>
             <tbody>
+                {% for dish in recipe %}
                 <tr>
-                    <td>SAMPLE</td>
-                    <td>SAMPLE</td>
+                    <td>{{recipe.name}}</td>
+                    <td>{{recipe.under_30}}</td>
                     <td>
                         <a href="" class="m-2">view instructions</a>
+                        {% if recipe.user_id == session['user_id'] %}
                         <a href="" class="m-2">edit</a>
                         <a href="" class="m-2">delete</a>
+                        {% endif %}
                     </td>
                 </tr>
+                {% endfor %}
             </tbody>
         </table>
 
