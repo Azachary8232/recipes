@@ -25,17 +25,16 @@ def create_recipe():
 #  Displays a Recipe's Info
 @app.route('/recipe_info/<int:id>')
 def recipe_info(id):
-    print("????")
-    print(id)
-    data = {
+    recipe_data = {
         'id' : id
     }
-    user = User.get_one(session['user_id'])
-    print("!!!!")
-    print(user)
+    user_id = {
+        'id' : session['user_id']
+    }
+    print(user_id)
+    user = User.get_one(user_id)
 
-    recipe = Recipe.get_recipe(data)
-    print(recipe)
+    recipe = Recipe.get_recipe(recipe_data)
     return render_template('recipe_info.html', recipe = recipe, user = user)
 
     #  Page for User to edit Recipe

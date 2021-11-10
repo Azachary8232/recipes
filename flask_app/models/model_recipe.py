@@ -57,6 +57,12 @@ class Recipe:
         query = 'SELECT * FROM recipes WHERE recipes.id = %(id)s;'
         result = connectToMySQL(model_db).query_db(query, data)
         return cls(result[0])
+    
+    @classmethod
+    def get_all_recipes(cls):
+        query = "SELECT * FROM recipes"
+        results = connectToMySQL(model_db).query_db(query)
+        return results
 
 
 # Update

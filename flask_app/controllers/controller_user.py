@@ -60,10 +60,9 @@ def dashboard():
     data = {
         'id' : session['user_id']
     }
-    print(session)
     person = User.get_one(data)
-    print(person)
-    recipes = User.get_all_with_recipes()
+    recipes = Recipe.get_all_recipes()
+    print(recipes)
     return render_template('dashboard.html', recipes = recipes, user = person)
 
 
