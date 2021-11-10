@@ -59,3 +59,12 @@ def update_recipe():
 
     Recipe.update(data)
     return redirect('/dashboard')
+
+@app.route('/delete/<int:id>')
+def delete(id):
+    print(id)
+    data = {
+        'id' : id
+    }
+    Recipe.delete(data)
+    return redirect('/dashboard')

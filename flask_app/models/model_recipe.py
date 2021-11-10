@@ -69,3 +69,9 @@ class Recipe:
 
 
 # Delete
+
+    @classmethod
+    def delete(cls,data):
+        query = 'DELETE FROM recipes WHERE id = %(id)s';
+        connectToMySQL(model_db).query_db(query, data)
+        return print("Delete Successful")

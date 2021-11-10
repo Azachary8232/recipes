@@ -42,7 +42,7 @@
                         <a href="/recipe_info/{{dish.id}}" class="m-2" >view instructions</a>
                         {% if dish.user_id == session['user_id'] %}
                         <a href="/edit" class="m-2">edit</a>
-                        <a href="" class="m-2">delete</a>
+                        <a href="/delete/{{dish.id}}" class="m-2">delete</a>
                         {% endif %}
                     </td>
                 </tr>
