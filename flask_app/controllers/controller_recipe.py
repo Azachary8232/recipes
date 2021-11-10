@@ -39,15 +39,14 @@ def edit_recipe():
     if 'user_id' not in session:
         return redirect('/')
 
-    if not Recipe.validate_recipe(request.form):
-        return redirect('/new_recipe')
-
     return render_template('edit_recipe.html')
 
 @app.route('/update', methods=['POST'])
 def update_recipe():
+    print(request.form)
     if not Recipe.validate_recipe(request.form):
-        return redirect('/new_recipe')
+        return redirect('/edit')
+    print("!!!!!")
     user_id = session['user_id']
     data = {
         'user_id' : user_id,
